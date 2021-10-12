@@ -15,7 +15,11 @@ const Stories: React.FC = () => {
   }, [])
 
   return (
-    <div className="flex gap-4 p-5 bg-white mt-8 border-gray-200 border rounded-sm overflow-x-scroll">
+    <div
+      className="flex gap-4 p-5 bg-white mt-8
+    border-gray-200 border rounded-sm overflow-x-scroll
+    scrollbar-thin scrollbar-thumb-gray-200"
+    >
       {suggestions.map((profile: Profile) => {
         return (
           <Story

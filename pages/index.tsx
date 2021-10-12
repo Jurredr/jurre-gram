@@ -5,7 +5,7 @@ import Header from '../components/Header'
 
 const Home: NextPage = () => {
   return (
-    <div className="bg-gray-50 h-screen">
+    <div className="bg-gray-50 h-screen overflow-y-scroll scrollbar-hide">
       {/* Head */}
       <Head>
         <title>Jurregram</title>
