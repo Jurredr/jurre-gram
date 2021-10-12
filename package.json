@@ -1,7 +1,17 @@
 {
   "name": "jurre-gram",
-  "version": "0.1.0",
+  "version": "1.0.0",
   "private": true,
+  "keywords": [
+    "Jurregram",
+    "Instagram",
+    "Firebase",
+    "NextJS",
+    "TailwindCSS",
+    "Recoil"
+  ],
+  "author": "Jurredr",
+  "license": "MIT",
   "scripts": {
     "dev": "next dev",
     "build": "next build",
