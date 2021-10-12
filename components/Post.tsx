@@ -1,13 +1,5 @@
 import React from 'react'
-import {
-  BookmarkIcon,
-  ChatIcon,
-  DotsHorizontalIcon,
-  EmojiHappyIcon,
-  HeartIcon,
-  PaperAirplaneIcon
-} from '@heroicons/react/outline'
-import { HeartIcon as HeartIconFilled } from '@heroicons/react/solid'
+import { DotsHorizontalIcon } from '@heroicons/react/outline'
 
 interface Props {
   key: number
@@ -27,6 +19,7 @@ const Post: React.FC<Props> = (props) => {
           className="rounded-full h-11 w-11 object-contain p-1 mr-3 cursor-pointer"
           src={props.userImg}
           alt="Avatar"
+          draggable="false"
         />
         <div className="flex flex-1">
           <p className="align-start font-semibold text-sm hover:underline cursor-pointer w-max-12">
@@ -37,7 +30,12 @@ const Post: React.FC<Props> = (props) => {
       </div>
 
       {/* Image */}
-      <img className="object-cover w-full" src={props.img} alt="Post Image" />
+      <img
+        className="object-cover w-full"
+        src={props.img}
+        alt="Post Image"
+        draggable="false"
+      />
 
       {/* Buttons */}
       <div className="flex justify-between px-4 pt-4">

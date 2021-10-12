@@ -1,6 +1,8 @@
 import React from 'react'
+import MiniProfile from './MiniProfile'
 import Posts from './Posts'
 import Stories from './Stories'
+import Suggestions from './Suggestions'
 
 const Feed: React.FC = () => {
   return (
@@ -15,10 +17,16 @@ const Feed: React.FC = () => {
       </section>
 
       {/* Right */}
-      <section className="col-span-1">
-        {/* Mini Profile */}
-        {/* Suggestions */}
-        {/* Footer */}
+      <section className="hidden xl:inline-grid md:col-span-1">
+        <div className="fixed top-20">
+          {/* Mini Profile */}
+          <MiniProfile />
+
+          {/* Suggestions */}
+          <Suggestions />
+
+          {/* Footer */}
+        </div>
       </section>
     </main>
   )
