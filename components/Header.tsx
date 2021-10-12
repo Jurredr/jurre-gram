@@ -1,19 +1,11 @@
 import React from 'react'
 import Image from 'next/image'
-import {
-  SearchIcon,
-  PlusCircleIcon,
-  UserGroupIcon,
-  HeartIcon,
-  PaperAirplaneIcon,
-  MenuIcon
-} from '@heroicons/react/outline'
-import { HomeIcon } from '@heroicons/react/solid'
+import { SearchIcon } from '@heroicons/react/outline'
 
 const Header: React.FC = () => {
   return (
-    <div className="shadow-sm border-b bg-white sticky top-0 z-50">
-      <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto">
+    <div className="border-b border-gray-200 bg-white sticky top-0 z-50 min-h-14 h-14">
+      <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto py-3 px-5">
         {/* Left */}
         <div className="relative hidden w-24 lg:inline-grid cursor-pointer">
           <Image
@@ -36,44 +28,57 @@ const Header: React.FC = () => {
         </div>
 
         {/* Middle */}
-        <div className="max-w-xs">
-          <div className="relative mt-1 p-3 rounded-md">
-            <div className="absolute inset-y-0 pl-3 flex items-center pointer-events-none">
-              <SearchIcon className="h-5 w-5 text-gray-500" />
+        <div className="max-w-xs hidden md:block">
+          <div className="relative rounded-md">
+            <div className="absolute inset-y-0 pl-4 flex items-center pointer-events-none">
+              <SearchIcon className="h-4 w-4 text-gray-400" />
             </div>
             <input
-              className="bg-gray-50 block w-full
-              pl-10 sm:text-sm border-gray-300 rounded-md
-              focus:ring-gray-500 focus:border-gray-500"
+              className="bg-gray-50 block w-full h-8
+              pl-10 sm:text-sm border-gray-200 rounded-md
+              focus:ring-gray-300 focus:border-gray-300"
               type="text"
               placeholder="Search"
             />
           </div>
         </div>
+        <div className="max-w-xs block md:hidden h-8"></div>
 
         {/* Right */}
-        <div className="flex items-center justify-end space-x-4">
-          <HomeIcon className="navBtn" />
-          <MenuIcon className="h-6 md:hidden cursor-pointer" />
-
-          <div className="relative navBtn">
-            <PaperAirplaneIcon className="navBtn rotate-45" />
+        <div className="flex items-center justify-end gap-6">
+          <img
+            className="navBtn"
+            src="/home-icon.svg"
+            alt="Home"
+            draggable="false"
+          />
+          <div className="relative navBtn flex justify-center items-center">
+            <img src="/direct-icon.svg" alt="Direct" draggable="false" />
             <div
-              className="absolute -top-1 -right-2 text-xs w-5 h-5 bg-red-400
-              rounded-full flex items-center justify-center animate-pulse text-white"
+              className="absolute -top-1 -right-2 text-xs bg-red-500
+              rounded-full flex items-center justify-center text-white"
+              style={{ width: '1.15rem', height: '1.15rem' }}
             >
               3
             </div>
           </div>
-          <PlusCircleIcon className="navBtn" />
-          <UserGroupIcon className="navBtn" />
-          <HeartIcon className="navBtn" />
-
+          <img
+            className="navBtn"
+            src="/explore-icon.svg"
+            alt="Direct"
+            draggable="false"
+          />
+          <img
+            className="navBtn"
+            src="/activity-icon.svg"
+            alt="Direct"
+            draggable="false"
+          />
           <img
             src="https://randomuser.me/api/portraits/men/43.jpg"
             alt="Profile"
             draggable="false"
-            className="h-10 rounded-full cursor-pointer"
+            className="h-6 rounded-full cursor-pointer"
           />
         </div>
       </div>
