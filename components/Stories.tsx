@@ -15,14 +15,15 @@ const Stories: React.FC = () => {
   }, [])
 
   return (
-    <div>
-      {/* Story */}
+    <div className="flex gap-4 p-5 bg-white mt-8 border-gray-200 border rounded-sm overflow-x-scroll">
       {suggestions.map((profile: Profile) => {
-        ;<Story
-          key={profile.id}
-          img={profile.avatar}
-          username={profile.username}
-        />
+        return (
+          <Story
+            key={profile.id}
+            img={profile.avatar}
+            username={profile.username}
+          />
+        )
       })}
     </div>
   )
