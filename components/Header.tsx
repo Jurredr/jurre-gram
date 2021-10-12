@@ -6,8 +6,12 @@ const Header: React.FC = () => {
     <div>
       <div className="flex justify-between max-w-6xl">
         {/* Left */}
-        <div className="relative h-24 w-24">
+        <div className="relative hidden h-24 w-24 lg:inline-grid">
           <Image src="/logo.svg" layout="fill" objectFit="contain" />
+        </div>
+
+        <div className="relative w-10 h-10 lg:hidden flex-shrink-0">
+          <Image src="/icon.svg" layout="fill" objectFit="contain" />
         </div>
 
         {/* Middle */}
