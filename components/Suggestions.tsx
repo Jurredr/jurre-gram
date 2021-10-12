@@ -35,7 +35,7 @@ const Suggestions: React.FC = () => {
 
             <div className="flex-1 ml-4">
               <h2 className="font-semibold text-sm">{profile.username}</h2>
-              <h3 className="w-40 text-xs text-gray-400 truncate">
+              <h3 className="w-44 text-xs text-gray-400 truncate">
                 Followed by {profile.username}
               </h3>
             </div>

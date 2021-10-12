@@ -1,4 +1,5 @@
 import React from 'react'
+import Footer from './Footer'
 import MiniProfile from './MiniProfile'
 import Posts from './Posts'
 import Stories from './Stories'
@@ -26,6 +27,7 @@ const Feed: React.FC = () => {
           <Suggestions />
 
           {/* Footer */}
+          <Footer />
         </div>
       </section>
     </main>
