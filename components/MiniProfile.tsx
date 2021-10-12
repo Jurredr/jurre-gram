@@ -2,7 +2,7 @@ import React from 'react'
 
 const MiniProfile: React.FC = () => {
   return (
-    <div className="flex items-center justify-between mt-8 ml-8">
+    <div className="flex items-center justify-between mt-8 ml-24">
       <img
         className="rounded-full w-16 h-16"
         src="https://randomuser.me/api/portraits/men/43.jpg"
