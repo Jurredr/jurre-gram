@@ -3,6 +3,6 @@ module.exports = {
   reactStrictMode: true,
   images: {
     // Whitelisted domains
-    domains: []
+    domains: ['randomuser.me']
   }
 }
