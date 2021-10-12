@@ -1,9 +1,9 @@
 import React from 'react'
 
 interface Props {
-  key: any
-  img: any
-  username: any
+  key: number
+  img: string
+  username: string
 }
 
 const Story: React.FC<Props> = (props) => {
