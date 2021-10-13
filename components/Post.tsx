@@ -159,6 +159,11 @@ const Post: React.FC<Props> = (props) => {
 
       {/* Caption */}
       <p className="p-5 truncate">
+        {likes.length > 0 && (
+          <p className="font-semibold mb-1">
+            {likes.length} like{likes.length === 1 ? '' : 's'}
+          </p>
+        )}
         <span className="font-semibold mr-1">{props.username}</span>
         {props.caption}
       </p>
