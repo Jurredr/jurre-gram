@@ -1,5 +1,5 @@
-import type { NextPage } from 'next'
-import Head from 'next/head'
+import type { GetServerSidePropsContext, NextPage } from 'next'
+import { getSession } from 'next-auth/react'
 import Feed from '../components/Feed'
 import Header from '../components/Header'
 
@@ -15,6 +15,22 @@ const Home: NextPage = () => {
       {/* Modal */}
     </div>
   )
+}
+
+export async function getServerSideProps({ req }: GetServerSidePropsContext) {
+  const session = await getSession({ req })
+  if (!session) {
+    return {
+      redirect: {
+        destination: '/signin',
+        permanent: false
+      }
+    }
+  }
+
+  return {
+    props: {}
+  }
 }
 
 export default Home
