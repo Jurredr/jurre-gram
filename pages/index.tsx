@@ -2,6 +2,7 @@ import type { GetServerSidePropsContext, NextPage } from 'next'
 import { getSession } from 'next-auth/react'
 import Feed from '../components/Feed'
 import Header from '../components/Header'
+import Modal from '../components/Modal'
 
 const Home: NextPage = () => {
   return (
@@ -13,6 +14,7 @@ const Home: NextPage = () => {
       <Feed />
 
       {/* Modal */}
+      <Modal />
     </div>
   )
 }

@@ -19,6 +19,7 @@
     "lint": "next lint"
   },
   "dependencies": {
+    "@headlessui/react": "^1.4.1",
     "@heroicons/react": "^1.0.4",
     "@tailwindcss/forms": "^0.3.4",
     "faker": "^5.5.3",
