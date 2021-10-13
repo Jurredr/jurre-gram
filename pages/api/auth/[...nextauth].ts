@@ -10,5 +10,18 @@ export default NextAuth({
   ],
   pages: {
     signIn: '/signin'
+  },
+  callbacks: {
+    async session({ session, token, user }) {
+      // @ts-ignore
+      session.user.username = session.user.name
+        .split('')
+        .join('')
+        .toLocaleLowerCase()
+
+      // @ts-ignore
+      session.user.uid = token.sub
+      return session
+    }
   }
 })
