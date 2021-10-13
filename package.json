@@ -24,10 +24,12 @@
     "@tailwindcss/forms": "^0.3.4",
     "faker": "^5.5.3",
     "firebase": "^9.1.2",
+    "moment": "^2.29.1",
     "next": "11.1.2",
     "next-auth": "4.0.0-beta.4",
     "react": "17.0.2",
     "react-dom": "17.0.2",
+    "react-moment": "^1.1.1",
     "recoil": "^0.4.1",
     "sass": "^1.42.1"
   },
