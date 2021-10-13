@@ -2,11 +2,11 @@ import '../styles/globals.scss'
 import type { AppProps } from 'next/app'
 import React from 'react'
 import Head from 'next/head'
+import { SessionProvider } from 'next-auth/react'
 
-function MyApp({ Component, pageProps }: AppProps) {
+function MyApp({ Component, pageProps: { session, ...pageProps } }: AppProps) {
   return (
-    <div>
-      <Component {...pageProps} />
+    <SessionProvider session={session}>
       {/* Head */}
       <Head>
         <title>Jurregram</title>
@@ -17,7 +17,10 @@ function MyApp({ Component, pageProps }: AppProps) {
         <meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-    </div>
+
+      {/* Main Component */}
+      <Component {...pageProps} />
+    </SessionProvider>
   )
 }
 export default MyApp

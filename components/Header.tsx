@@ -1,8 +1,13 @@
 import React from 'react'
 import Image from 'next/image'
 import { SearchIcon } from '@heroicons/react/outline'
+import { useSession } from 'next-auth/react'
 
 const Header: React.FC = () => {
+  const { data: session } = useSession()
+
+  console.log(session)
+
   return (
     <div className="border-b border-gray-200 bg-white sticky top-0 z-50 min-h-14 h-14">
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto py-3 px-5">
@@ -75,7 +80,10 @@ const Header: React.FC = () => {
             draggable="false"
           />
           <img
-            src="https://randomuser.me/api/portraits/men/43.jpg"
+            src={
+              session?.user?.image ||
+              'https://randomuser.me/api/portraits/men/43.jpg'
+            }
             alt="Profile"
             draggable="false"
             className="h-6 rounded-full cursor-pointer"
