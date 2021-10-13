@@ -2,8 +2,8 @@ import React from 'react'
 import { DotsHorizontalIcon } from '@heroicons/react/outline'
 
 interface Props {
-  key: number
-  id: number
+  key: string
+  id: string
   username: string
   userImg: string
   img: string
