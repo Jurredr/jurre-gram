@@ -113,18 +113,29 @@ const Post: React.FC<Props> = (props) => {
         src={props.img}
         alt="Post Image"
         draggable="false"
+        onDoubleClick={likePost}
       />
 
       {/* Buttons */}
       <div className="flex justify-between px-4 pt-4">
         <div className="flex gap-4">
-          <img
-            className="btn"
-            onClick={likePost}
-            src="/heart-icon.svg"
-            alt="Like"
-            draggable="false"
-          />
+          {hasLiked ? (
+            <img
+              className="btn"
+              onClick={likePost}
+              src="/heart-icon-filled.svg"
+              alt="Unlike"
+              draggable="false"
+            />
+          ) : (
+            <img
+              className="btn"
+              onClick={likePost}
+              src="/heart-icon.svg"
+              alt="Like"
+              draggable="false"
+            />
+          )}
           <img
             className="btn"
             src="/comment-icon.svg"
