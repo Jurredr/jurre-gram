@@ -7,5 +7,8 @@ export default NextAuth({
       clientId: process.env.GOOGLE_CLIENT_ID || 'clientId',
       clientSecret: process.env.GOOGLE_CLIENT_SECRET || 'clientSecret'
     })
-  ]
+  ],
+  pages: {
+    signIn: '/signin'
+  }
 })
