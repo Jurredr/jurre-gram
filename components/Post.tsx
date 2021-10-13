@@ -1,8 +1,17 @@
-import React, { useState } from 'react'
+import React, { useEffect, useState } from 'react'
 import { DotsHorizontalIcon } from '@heroicons/react/outline'
-import { addDoc, collection, serverTimestamp } from '@firebase/firestore'
+import {
+  addDoc,
+  collection,
+  onSnapshot,
+  orderBy,
+  query,
+  QueryDocumentSnapshot,
+  serverTimestamp
+} from '@firebase/firestore'
 import { db } from '../firebase'
 import { useSession } from 'next-auth/react'
+import Moment from 'react-moment'
 
 interface Props {
   key: string
@@ -16,7 +25,17 @@ interface Props {
 const Post: React.FC<Props> = (props) => {
   const { data: session } = useSession()
   const [commentInput, setCommentInput] = useState('')
-  const [comments, setComments] = useState([])
+  const [comments, setComments] = useState<QueryDocumentSnapshot[]>([])
+
+  useEffect(() => {
+    onSnapshot(
+      query(
+        collection(db, 'posts', props.id, 'comments'),
+        orderBy('timeStamp', 'desc')
+      ),
+      (snapshot) => setComments(snapshot.docs)
+    )
+  }, [db])
 
   const sendComment = async (e: any) => {
     e.preventDefault()
@@ -98,6 +117,34 @@ const Post: React.FC<Props> = (props) => {
       </p>
 
       {/* Comments */}
+      {comments.length > 0 && (
+        <div className="ml-10 h-20 overflow-y-scroll scrollbar-thumb-gray-200 scrollbar-thin">
+          {comments.map((comment) => {
+            return (
+              <div
+                key={comment.id}
+                className="flex items-center space-x-2 mb-3"
+              >
+                <img
+                  className="h-7 rounded-full"
+                  src={comment.data().userImage}
+                  alt="Avatar"
+                  draggable="false"
+                />
+                <p className="text-sm flex-1">
+                  <span className="font-semibold">
+                    {comment.data().username}
+                  </span>{' '}
+                  {comment.data().comment}
+                </p>
+                <Moment fromNow className="pr-5 text-xs">
+                  {comment.data().timeStamp?.toDate()}
+                </Moment>
+              </div>
+            )
+          })}
+        </div>
+      )}
 
       {/* Comment Input */}
       <form className="flex items-center px-4 py-2 border-0 border-t-[1px] border-t-gray-100">
