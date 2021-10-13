@@ -90,7 +90,7 @@ const Post: React.FC<Props> = (props) => {
   }
 
   return (
-    <div className="bg-white my-7 border rounded-sm">
+    <div className="bg-white my-7 border rounded-sm max-w-full">
       {/* Header */}
       <div className="flex items-center p-4">
         <img
@@ -217,7 +217,7 @@ const Post: React.FC<Props> = (props) => {
           type="submit"
           disabled={!commentInput.trim()}
           onClick={sendComment}
-          className="font-semibold text-blue-400"
+          className="font-semibold text-blue-400 disabled:opacity-40 disabled:cursor-default"
         >
           Post
         </button>
