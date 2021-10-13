@@ -2,9 +2,12 @@ import React from 'react'
 import Image from 'next/image'
 import { SearchIcon } from '@heroicons/react/outline'
 import { useSession } from 'next-auth/react'
+import { useRecoilState } from 'recoil'
+import { modalState } from '../atoms/ModalAtom'
 
 const Header: React.FC = () => {
   const { data: session } = useSession()
+  const [open, setOpen] = useRecoilState(modalState)
 
   return (
     <div className="border-b border-gray-200 bg-white sticky top-0 z-50 min-h-14 h-14">
@@ -70,6 +73,7 @@ const Header: React.FC = () => {
             src="/explore-icon.svg"
             alt="Direct"
             draggable="false"
+            onClick={() => setOpen(true)}
           />
           <img
             className="navBtn"
