@@ -1,36 +1,44 @@
-# [📸] Modern Instagram clone. (NextJS + Firebase)
+<p align="center">
+  <img width="40%" height="40%" src="https://jurre-gram.vercel.app/logo.svg" alt="Jurregram" />
+</p>
 
-This is a [Next.js](https://nextjs.org/) project bootstrapped with [`create-next-app`](https://github.com/vercel/next.js/tree/canary/packages/create-next-app).
+<p align="center">
+  [📸] Modern Instagram clone. (NextJS + Firebase)
+</p>
 
-## Getting Started
+<br/><br/>
+## Project
+This project was aimed at getting comfortable with NextAuth, Firebase, and Recoil state management. It consists of an authentication page, where the user can sign in using their Google account, after which they are redirected to the home page.
 
-First, run the development server:
+![image](https://user-images.githubusercontent.com/62119716/137132313-04e5663a-c119-4935-b7fe-aa0057dd7853.png)
 
-```bash
-npm run dev
-# or
-yarn dev
-```
+<br/><br/>
+The home page is an exact copy of the Instagram home page. The system is a bit simplified however, so all posts in the feed are global posts. The stories and suggestions are filled with random Faker.js data to provide a realistic look and feel.
 
-Open [http://localhost:3000](http://localhost:3000) with your browser to see the result.
+![image](https://user-images.githubusercontent.com/62119716/137132198-d897e1de-1fea-4f1b-bbf7-5a9dc7b07a5f.png)
 
-You can start editing the page by modifying `pages/index.tsx`. The page auto-updates as you edit the file.
+<br/><br/>
+The user can create a new post by clicking on the 'Explore' icon in the navigation bar. They will be greeted by a modal that allows the user to upload a photo and attach a caption:
 
-[API routes](https://nextjs.org/docs/api-routes/introduction) can be accessed on [http://localhost:3000/api/hello](http://localhost:3000/api/hello). This endpoint can be edited in `pages/api/hello.ts`.
+![image](https://user-images.githubusercontent.com/62119716/137133632-654f6c8e-bd87-440b-8a56-d23d0ff9c34a.png)
 
-The `pages/api` directory is mapped to `/api/*`. Files in this directory are treated as [API routes](https://nextjs.org/docs/api-routes/introduction) instead of React pages.
+<br/><br/>
 
-## Learn More
+<p align="center">
+  After providing a photo and a caption, the post can be created using the 'Upload' button:
+</p>
+<br/>
+<p align="center">
+  <img width="40%" height="40%" src="https://user-images.githubusercontent.com/62119716/137133760-9d586859-00d2-42c8-bc0d-2f7384d9573c.png" alt="Upload" />
+</p>
 
-To learn more about Next.js, take a look at the following resources:
+<br/><br/>
+After uploading, the post gets added immediately and now shows up in the user's feed. Posts can be liked, and users can leave comments:
 
-- [Next.js Documentation](https://nextjs.org/docs) - learn about Next.js features and API.
-- [Learn Next.js](https://nextjs.org/learn) - an interactive Next.js tutorial.
+![image](https://user-images.githubusercontent.com/62119716/137133944-d61e9ab9-886a-40f9-bff4-d97edbc440a2.png)
 
-You can check out [the Next.js GitHub repository](https://github.com/vercel/next.js/) - your feedback and contributions are welcome!
-
-## Deploy on Vercel
-
-The easiest way to deploy your Next.js app is to use the [Vercel Platform](https://vercel.com/new?utm_medium=default-template&filter=next.js&utm_source=create-next-app&utm_campaign=create-next-app-readme) from the creators of Next.js.
-
-Check out our [Next.js deployment documentation](https://nextjs.org/docs/deployment) for more details.
+<br/>
+<p align="center">
+  Credits to @Sonny Sangha on YouTube for build tutorials and inspiration
+  (https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)
+</p>
