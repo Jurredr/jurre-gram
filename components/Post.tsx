@@ -3,15 +3,18 @@ import { DotsHorizontalIcon } from '@heroicons/react/outline'
 import {
   addDoc,
   collection,
+  deleteDoc,
   onSnapshot,
   orderBy,
   query,
   QueryDocumentSnapshot,
-  serverTimestamp
+  serverTimestamp,
+  setDoc
 } from '@firebase/firestore'
 import { db } from '../firebase'
 import { useSession } from 'next-auth/react'
 import Moment from 'react-moment'
+import { doc } from 'firebase/firestore'
 
 interface Props {
   key: string
@@ -26,6 +29,8 @@ const Post: React.FC<Props> = (props) => {
   const { data: session } = useSession()
   const [commentInput, setCommentInput] = useState('')
   const [comments, setComments] = useState<QueryDocumentSnapshot[]>([])
+  const [likes, setLikes] = useState<QueryDocumentSnapshot[]>([])
+  const [hasLiked, setHasLiked] = useState(false)
 
   useEffect(() => {
     onSnapshot(
@@ -35,7 +40,37 @@ const Post: React.FC<Props> = (props) => {
       ),
       (snapshot) => setComments(snapshot.docs)
     )
-  }, [db])
+  }, [db, props.id])
+
+  useEffect(
+    () =>
+      onSnapshot(collection(db, 'posts', props.id, 'likes'), (snapshot) => {
+        setLikes(snapshot.docs)
+      }),
+    [db, props.id]
+  )
+
+  useEffect(
+    () =>
+      setHasLiked(
+        // @ts-ignore
+        likes.findIndex((like) => like.id === session?.user.uid) !== -1
+      ),
+    [likes]
+  )
+
+  const likePost = async () => {
+    if (hasLiked) {
+      // @ts-ignore
+      await deleteDoc(doc(db, 'posts', props.id, 'likes', session.user.uid))
+    } else {
+      // @ts-ignore
+      await setDoc(doc(db, 'posts', props.id, 'likes', session.user.uid), {
+        // @ts-ignore
+        username: session.user.username
+      })
+    }
+  }
 
   const sendComment = async (e: any) => {
     e.preventDefault()
@@ -85,6 +120,7 @@ const Post: React.FC<Props> = (props) => {
         <div className="flex gap-4">
           <img
             className="btn"
+            onClick={likePost}
             src="/heart-icon.svg"
             alt="Like"
             draggable="false"
