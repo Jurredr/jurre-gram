@@ -6,8 +6,6 @@ import { useSession } from 'next-auth/react'
 const Header: React.FC = () => {
   const { data: session } = useSession()
 
-  console.log(session)
-
   return (
     <div className="border-b border-gray-200 bg-white sticky top-0 z-50 min-h-14 h-14">
       <div className="flex justify-between max-w-6xl mx-5 lg:mx-auto py-3 px-5">
