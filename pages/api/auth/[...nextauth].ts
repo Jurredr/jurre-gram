@@ -12,10 +12,10 @@ export default NextAuth({
     signIn: '/signin'
   },
   callbacks: {
-    async session({ session, token, user }) {
+    async session({ session, token }) {
       // @ts-ignore
       session.user.username = session.user.name
-        .split('')
+        .split(' ')
         .join('')
         .toLocaleLowerCase()
 

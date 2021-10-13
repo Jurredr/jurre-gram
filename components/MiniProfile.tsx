@@ -17,7 +17,10 @@ const MiniProfile: React.FC = () => {
       />
 
       <div className="flex-1 ml-5 mr-8">
-        <h2 className="font-medium">jurre.053</h2>
+        <h2 className="font-medium">
+          {/* @ts-ignore */}
+          {session?.user?.username || 'undefined'}
+        </h2>
         <h3 className="text-sm text-gray-400">
           {session?.user?.name || 'Unknown name'}
         </h3>
