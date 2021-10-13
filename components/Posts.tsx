@@ -23,8 +23,6 @@ const Posts: React.FC = () => {
     [db]
   )
 
-  console.log(posts)
-
   return (
     <div>
       {posts.map((post: QueryDocumentSnapshot) => {
