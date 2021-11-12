@@ -161,6 +161,7 @@ const Modal: React.FC = () => {
                       <input
                         ref={filePickerRef}
                         type="file"
+                        accept="image/*"
                         hidden
                         onChange={addImageToPost}
                       />
