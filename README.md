@@ -39,6 +39,6 @@ After uploading, the post gets added immediately and now shows up in the user's 
 
 <br/>
 <p align="center">
-  Credits to @Sonny Sangha on YouTube for build tutorials and inspiration
+  Credits to @Sonny Sangha on YouTube for Firebase tutorials and inspiration
   (https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)
 </p>
