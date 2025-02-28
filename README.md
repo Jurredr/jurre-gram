@@ -36,9 +36,3 @@ The user can create a new post by clicking on the 'Explore' icon in the navigati
 After uploading, the post gets added immediately and now shows up in the user's feed. Posts can be liked, and users can leave comments:
 
 ![image](https://user-images.githubusercontent.com/62119716/137133944-d61e9ab9-886a-40f9-bff4-d97edbc440a2.png)
-
-<br/>
-<p align="center">
-  Credits to @Sonny Sangha on YouTube for Firebase tutorials and inspiration
-  (https://www.youtube.com/channel/UCqeTj_QAnNlmt7FwzNwHZnA)
-</p>
